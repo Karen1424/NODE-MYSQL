@@ -52,8 +52,8 @@ app.post("/add", (req,res) => {
 
 // View
 app.post("/view", (req,res) => {
-   
-    db.query(`SELECT * FROM Users WHERE userID = ${id} `,(err,row) => {
+    
+  db.query(`SELECT * FROM Users WHERE userID = ${id} `,(err,row) => {
         if(err) {
             res.send("Error encountered while displaying");
             return  console.error(err.message);
@@ -63,13 +63,12 @@ app.post("/view", (req,res) => {
     });
 });
 
-
 // Update
-app.post("/update", (req,res) => {
+app.post("/update", (req,res) => {    
     
-    db.query('UPDATE Users SET name = (?) WHERE userID = (?)',[req.body.name,req.body.id], (err) => {
+  db.query('UPDATE Users SET name = (?) WHERE userID = (?)',[req.body.name,req.body.id], (err) => {
         
-        if(err) {
+     if(err) {
             res.send("Error encountered while displaying");
             return  console.error(err.message);
         }       
